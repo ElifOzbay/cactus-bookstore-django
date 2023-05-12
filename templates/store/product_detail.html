@@ -24,60 +24,38 @@
     <div class="mb-3"> 
         <var class="price h4"> {{single_product.price}}₺ </var> 
     </div> 
-    
-    <p> {{single_product.description}} </p>
-    
-    
     <hr>
-        <div class="row">
-            <div class="item-option-select">
-                <h6>Choose Color</h6>
-                <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-light">
-                    <input type="radio" name="radio_color"> Silver
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="radio_color" > Gray
-                  </label>
-                  <label class="btn btn-light active">
-                    <input type="radio" name="radio_color checked"> Gold
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="radio_color"> Black
-                  </label>
-                </div> 
-            </div>
-        </div> <!-- row.// -->
-        <div class="row">
-            <div class="item-option-select">
-                <h6>Select Size</h6>
-                <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-light">
-                    <input type="radio" name="radio_color"> S
-                  </label>
-                  <label class="btn btn-light active">
-                    <input type="radio" name="radio_color" checked> M
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="radio_color"> L
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="radio_color"> XL
-                  </label>
-                </div> 
-            </div>
-        </div> <!-- row.// -->
-        <hr>
+    <h5 class="category">Kategori: {{single_product.category}} </h5>
+    <h5 class="publisher">Yayınevi: {{single_product.publisher}} </h5>
+    <h5 class="number_of_pages">Sayfa Sayısı: {{single_product.number_of_pages}} </h5>
+    <h5 class="language">Dil: {{single_product.language}} </h5>
+    <h5 class="barcode">Barkod: {{single_product.barcode}} </h5>
+    <hr>
         {% if single_product.stock <= 0  %}
           <h5 class="text-danger">Out of Stock</h5>
           {%else%}
-            <a href="./product-detail.html" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
-          {%endif%}
+            {% if in_cart %}
+              <a href="#" class="btn  btn-success"> <span class="text">Added to Cart</span> <i class="fas fa-check"></i>  </a>
+              <a href="{% url 'cart'%}" class="btn  btn-outline-primary"> <span class="text">View Cart</span> <i class="fas fa-eye"></i>  </a>
+            {%else%}
+              <a href="{% url 'add_cart' single_product.id %}" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+            {%endif%}
+        {%endif%}
     </article> <!-- product-info-aside .// -->
             </main> <!-- col.// -->
         </div> <!-- row.// -->
     </div> <!-- card.// -->
     <!-- ============================ COMPONENT 1 END .// ================================= -->
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <article class="content-body"> 
+          <h4>Description</h4>
+          <p> {{single_product.description}} </p>
+          </article>
+      </div>
+    </div>
     
     <br>
     
