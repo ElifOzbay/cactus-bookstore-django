@@ -30,7 +30,7 @@
 		<div class="card card-product-grid">
 			<a href="{{ product.get_url }}" class="img-wrap"> <img src="{{product.image.url}}"> </a>
 			<figcaption class="info-wrap">
-				<a href="{{ product.get_url }}" class="title"> {{product.title}} </a>
+				<a href="{{ product.get_url }}" class="title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="{{product.title}}"> {{product.title}} </a>
 				<a class="author"> {{product.author}} </a>
 				<div class="price mt-1">{{product.price}}₺</div> <!-- price-wrap.// -->
 			</figcaption>

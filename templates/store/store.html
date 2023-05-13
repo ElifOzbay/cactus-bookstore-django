@@ -138,8 +138,8 @@
                     
                 </div> <!-- img-wrap.// -->
                 <figcaption class="info-wrap">
-                    <div class="fix-height">
-                        <a href="{{ product.get_url }}" class="title"> {{ product.title }} </a>
+                    <div class="fix-height" > 
+                        <a href="{{ product.get_url }}" class="title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="{{product.title}}"> {{ product.title }} </a>
                         <a class="author"> {{ product.author }} </a>
                         <div class="price-wrap mt-2">
                             <span class="price"> {{product.price}}₺</span>
